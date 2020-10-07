@@ -15,30 +15,38 @@
  - has_many :products
  - belongs_to :purchase
 
-  # productテーブル
+  # productsテーブル
 | Colum          |  Type       | Options      |
 | -------------- | ----------- | ------------ |
 | title          | string      | NOT NULL     |
 | description    | text        | NOT NULL     |
 | details        | text        | NOT NULL     |
-| address        | integer     | NOT NULL     |
+| delivery       | integer     | NOT NULL     |
 | price          | integer     | NOT NULL     |
-| image          | ActiveStorageで実装         |
+| user           | reference   |              |
 
   ## Association
  - belongs_to :user
  - belongs_to :purchase
- - has_one :image
 
-  # purchaseテーブル
+  # purchasesテーブル
 | Colum          | Type        | Options      |
 | -------------- | ----------- | ------------ |
-| cardnum        | integer     | NOT NULL     |
-| expiration     | integer     | NOT NULL     |
-| cvccode        | ineger      | NOT NULL     |
+| user           | reference   | NOT NULL     |
+| product        | reference   | NOT NULL     |
 
   ## Association
  - belongs_to :user
  - has_many :products
+ - has_one :shipping_add
+
+  # shipping_addデーブル
+| Colum         | Type        | Options       |
+| ------------- | ----------- | ------------- |
+| user          | reference   | NOT NULL      |
+| address       | text        | NOT NULL      |
+
+ ## Association
+ - belongs_to :purchase
 
 
