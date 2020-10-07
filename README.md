@@ -9,11 +9,11 @@
 | lastname       | string      | NOT NULL     |
 | firstname-kana | string      | NOT NULL     |
 | lastname-kana  | string      | NOT NULL     |
-| birthday       | integer     | NOT NULL     |
+| birthday       | date        | NOT NULL     |
 
   ## Association
  - has_many :products
- - belongs_to :purchase
+ - has_many :purchase
 
   # productsテーブル
 | Colum          |  Type       | Options      |
@@ -21,13 +21,16 @@
 | title          | string      | NOT NULL     |
 | description    | text        | NOT NULL     |
 | details        | text        | NOT NULL     |
-| delivery       | integer     | NOT NULL     |
+| status         | integer     | NOT NULL     |
+| shipping_fee   | integer     | NOT NULL     |
+| prefecture     | integer     | NOT NULL     |
+| day_ship       | integer     | NOT NULL     |
 | price          | integer     | NOT NULL     |
 | user           | reference   |              |
 
   ## Association
  - belongs_to :user
- - belongs_to :purchase
+ - has_one :purchase
 
   # purchasesテーブル
 | Colum          | Type        | Options      |
@@ -37,7 +40,7 @@
 
   ## Association
  - belongs_to :user
- - has_many :products
+ - belong_to :products
  - has_one :shipping_add
 
   # shipping_addデーブル
@@ -45,6 +48,7 @@
 | ------------- | ----------- | ------------- |
 | user          | reference   | NOT NULL      |
 | address       | text        | NOT NULL      |
+| phone_num     | integer     | NOT NULL      |
 
  ## Association
  - belongs_to :purchase
