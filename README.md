@@ -2,14 +2,14 @@
 
 | colum          |  Type       | Options      |
 | -------------- | ----------- | ------------ |
-| email          | string      | NOT NULL     |
-| password       | string      | NOT NULL     |
-| nickname       | string      | NOT NULL     |
-| firstname      | string      | NOT NULL     |
-| lastname       | string      | NOT NULL     |
-| firstname_kana | string      | NOT NULL     |
-| lastname_kana  | string      | NOT NULL     |
-| birthday       | date        | NOT NULL     |
+| email          | string      | null: false  |
+| password       | string      | null: false  |
+| nickname       | string      | null: false  |
+| firstname      | string      | null: false  |
+| lastname       | string      | null: false  |
+| firstname_kana | string      | null: false  |
+| lastname_kana  | string      | null: false  |
+| birthday       | date        | null: false  |
 
   ## Association
  - has_many :products
@@ -18,14 +18,14 @@
   # productsテーブル
 | Colum          |  Type       | Options      |
 | -------------- | ----------- | ------------ |
-| title          | string      | NOT NULL     |
-| description    | text        | NOT NULL     |
-| category       | integer     | NOT NULL     |
-| status         | integer     | NOT NULL     |
-| shipping_fee   | integer     | NOT NULL     |
-| prefecture     | integer     | NOT NULL     |
-| day_ship       | integer     | NOT NULL     |
-| price          | integer     | NOT NULL     |
+| title          | string      | null: false  |
+| description    | text        | null: false  |
+| category_id    | integer     | null: false  |
+| status_id      | integer     | null: false  |
+| shipping_fee_id| integer     | null: false  |
+| prefecture_id  | integer     | null: false  |
+| day_ship_id    | integer     | null: false  |
+| price          | integer     | null: false  |
 | user           | reference   | foreign_key  |
 
   ## Association
@@ -46,13 +46,13 @@
   # shipping_addデーブル
 | Colum         | Type        | Options       |
 | ------------- | ----------- | ------------- |
-| user          | reference   | foreign_key   |
-| post_num      | integer     | NOT NULL      |
-| prefecture    | integer     | NOT NULL      |
-| city          | string      | NOT NULL      |
-| address       | integer     | NOT NULL      |
-| building      | string      | NOT NULL      |
-| phone_num     | integer     | NOT NULL      |
+| purchase      | reference   | foreign_key   |
+| post_num      | string      | null: false   |
+| prefecture_id | integer     | null: false   |
+| city          | string      | null: false   |
+| address       | string      | null: false   |
+| building      | string      |               |
+| phone_num     | string      | null: false   |
 
 
  ## Association
