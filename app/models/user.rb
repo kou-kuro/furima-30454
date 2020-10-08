@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :products
   has_many :purchases
 
-
+  devise :validatable, password_length: 6..128
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX
   
 end
