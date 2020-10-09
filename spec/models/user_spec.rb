@@ -70,10 +70,20 @@ describe User do
       @user.valid?
       expect(@user.errors.full_messages).to include("Firstname can't be blank")
     end
+    it 'firstnameが全角(漢字・ひらがな・カタカナ）でなければ登録できないこと' do
+      @user.firstname =  "１１１１"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Firstname 全角文字を使用してください")
+    end
     it "lastnameが空だと登録できない" do
       @user.lastname = nil
       @user.valid?
       expect(@user.errors.full_messages).to include("Lastname can't be blank")
+    end
+    it 'lastnameが全角(漢字・ひらがな・カタカナ）でなければ登録できないこと' do
+      @user.lastname =  "１１１１"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Lastname 全角文字を使用してください")
     end
     it "firstname_kanaが空だと登録できない" do
       @user.firstname_kana = nil
