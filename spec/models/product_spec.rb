@@ -66,7 +66,27 @@ describe Product do
         @product.valid?
         expect(@product.errors.full_messages).to include("Image can't be blank")
       end
-      it 'idが1の時は登録できない' do
+      it 'category_idが1の時は登録できない' do
+        @product.category_id = 1
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Category must be other than 1")
+      end
+      it 'status_idが1の時は登録できない' do
+        @product.status_id = 1
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Status must be other than 1")
+      end
+      it 'shipping_fee_idが1の時は登録できない' do
+        @product.shipping_fee_id = 1
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Shipping fee must be other than 1")
+      end
+      it 'prefecture_idが1の時は登録できない' do
+        @product.prefecture_id = 1
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Prefecture must be other than 1")
+      end
+      it 'day_ship_idが1の時は登録できない' do
         @product.day_ship_id = 1
         @product.valid?
         expect(@product.errors.full_messages).to include("Day ship must be other than 1")
