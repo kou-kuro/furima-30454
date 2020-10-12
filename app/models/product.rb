@@ -14,6 +14,17 @@ class Product < ApplicationRecord
   belongs_to :user
   has_one :purchase
   has_one_attached :image
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :status
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :shipping_fee
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :day_ship
+  validates :category_id, :prefecture_id, :status_id, :shipping_fee_id, :day_ship_id, numericality: { other_than: 1 } 
 
   
   validates :price, numericality: {greater_than: 300, less_than: 9999999}
