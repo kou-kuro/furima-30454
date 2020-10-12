@@ -66,6 +66,11 @@ describe Product do
         @product.valid?
         expect(@product.errors.full_messages).to include("Image can't be blank")
       end
+      it 'idが1の時は登録できない' do
+        @product.day_ship_id = 1
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Day ship must be other than 1")
+      end
     end
     end
   end

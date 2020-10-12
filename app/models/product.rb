@@ -1,15 +1,16 @@
 class Product < ApplicationRecord
+  with_options presence: true do
 
-
-  validates :title, presence: true
-  validates :description, presence: true
-  validates :category_id, presence: true
-  validates :status_id, presence: true
-  validates :shipping_fee_id, presence: true
-  validates :prefecture_id, presence: true
-  validates :day_ship_id, presence: true
-  validates :price, presence: true
-  validates :image, presence: true
+  validates :title
+  validates :description
+  validates :category_id
+  validates :status_id
+  validates :shipping_fee_id
+  validates :prefecture_id
+  validates :day_ship_id
+  validates :price
+  validates :image
+  end
 
   belongs_to :user
   has_one :purchase
