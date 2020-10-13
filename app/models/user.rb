@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :firstname_kana, presence: true
   validates :lastname_kana, presence: true
   validates :birthday_id, presence: true
-  
+
   has_many :products
   has_many :purchases
 
@@ -23,9 +23,8 @@ class User < ApplicationRecord
     validates :lastname
   end
 
-  with_options presence: true, format: { with: /\A^([ァ-ン]|ー)+$\z/} do
+  with_options presence: true, format: { with: /\A^([ァ-ン]|ー)+$\z/ } do
     validates :firstname_kana
     validates :lastname_kana
   end
-  
 end
