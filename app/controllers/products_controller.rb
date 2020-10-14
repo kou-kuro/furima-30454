@@ -35,6 +35,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to root_path
+  end
+
   def move_to_new
     redirect_to action: :new unless user_signed_in?
   end
