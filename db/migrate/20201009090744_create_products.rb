@@ -12,6 +12,10 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.references :user, foreign_key: true
       t.timestamps
 
+      
+       belongs_to :user
+       has_one :purchase
+
     end
   end
 end
