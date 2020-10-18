@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # order_for :purchases
   root to: 'products#index'
   resources :products do
-    resources :purchases, only: :index 
+    resources :purchases, only: [:index, :new, :create]
   end
   end
 

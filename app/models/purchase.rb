@@ -1,5 +1,7 @@
 class Purchase < ApplicationRecord
+  attr_accessor :token
+
   belongs_to :user
-  belong_to :product
+  belongs_to :product
   has_one :shipping_add
 end
